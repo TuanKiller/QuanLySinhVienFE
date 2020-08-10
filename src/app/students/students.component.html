@@ -1,0 +1,57 @@
+<div>
+    <table id="customers" style="border-collapse: collapse;">
+      <tr>
+        <th>Id</th>
+        <th>
+          Mã sinh viên
+          <!-- <mat-icon style="cursor: pointer;" (click)="sortByCode('down')">
+            arrow_downward
+          </mat-icon>
+          <mat-icon style="cursor: pointer;" (click)="sortByCode('up')">
+            arrow_upward
+          </mat-icon> -->
+        </th>
+        <th>Họ</th>
+        <th>Tên</th>
+        <th>Giới tính</th>
+        <th>Email</th>
+        <th>Điện thoại</th>
+        <th>Hành động</th>
+      </tr>
+      <tr *ngFor="let student of students">
+        <td>{{ student?.id }}</td>
+        <td>{{ student?.code }}</td>
+        <td>{{ student?.firstName }}</td>
+        <td>{{ student?.lastName }}</td>
+        <td>{{ student?.gender }}</td>
+        <td>{{ student?.email }}</td>
+        <td>{{ student?.phone }}</td>
+        <td>
+          <button
+            class="btn btn-primary"
+            mat-raised-button
+            title="Nhấn vào để sửa"
+            (click)="editStudent(student.id)"
+          >
+          <mat-icon>edit_box</mat-icon>
+            Edit
+          </button>
+          <button
+            class="btn btn-primary"
+            mat-raised-button
+            title="Nhấn vào để xóa"
+            (click)="deleteStudent(student.id)"
+          >
+          <mat-icon>delete_box</mat-icon>
+            Delete
+          </button>
+        </td>
+        
+      </tr>
+    </table>
+    <button mat-raised-button title="Nhấn để tạo mới " class="btn btn-primary" (click)="addStudent()">
+      <mat-icon>add_box</mat-icon>
+      Thêm sinh viên
+    </button>
+  </div>
+  
